@@ -118,8 +118,8 @@ def ECTCases():
 @app.route('/mindmap', methods=['POST'])
 def GetMindmapCases():
     try:    
-        postData = json.loads(request.form['mindMapData'])['data']
-        postTreeData = json.loads(request.form['mindMapTree'])['data']
+        postData = json.loads(request.json['mindMapData'])
+        postTreeData = json.loads(request.json['mindTreeData'])
         endPointDic = {}
         getLastPoint(postTreeData,endPointDic)
         Paths = getPaths(postData,endPointDic)
@@ -168,9 +168,6 @@ def GetMindmapCases():
             PairsWithOldTypr.append(temp)
         
         tableData = makeTableData(PairsWithOldTypr)
-        #pageProp = make_response(render_template('MindmapCase.html',cases=tableData,key=authkey))
-        #pageProp.set_cookie('mapData', request.form['mindMapData'])
-
         return tableData
     except:
         var = traceback.format_exc()
