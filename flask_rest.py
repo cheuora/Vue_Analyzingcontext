@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
+from flask_cors import CORS
 
 #Flask 인스턴스 생성
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 #할일 정의
