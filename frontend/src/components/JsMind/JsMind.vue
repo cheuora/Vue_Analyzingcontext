@@ -106,6 +106,8 @@ export default {
 #jsmind_container {
   height: 100%;
   width: 100%;
+  border : 1px;
   border-style:solid;
+
 }
 </style>

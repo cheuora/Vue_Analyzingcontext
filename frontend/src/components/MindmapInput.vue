@@ -2,11 +2,22 @@
     <div class="main">
 
         <h3>Given-When Scenario with MindMap</h3>
+             <center>
+                
+                <button @click="zoomIn">Zoon In</button>&nbsp;
+                <button @click="zoomOut">Zoom Out</button>
+             </center>
              <js-mind :values="mind" :options="options" ref="jsMind" width='200px' height="400px"></js-mind>
-        <div>
-          <button @click="test">Axios테스트</button>
-        </div>
+             <br>
+        <center>
+          <a v-on:click.once="test"><b>Get Result</b></a> &nbsp;|
+          <label for="import"><b>Import map</b></label> &nbsp;|
+          <a v-on:click.once="saveLocalFile"><b>Export map</b></a>
+  
+          <input type='file' @change='openLocalFile' accept="text/plane" ref="input" id="import" style="display:none"/>
 
+
+        </center>
     </div>
 
 </template>
@@ -98,6 +109,11 @@ export default {
         router.push({
           name: 'mindmapresult',
           params: {tabledata:response.data}
+        })
+      }).catch(function(error){
+        router.push({
+          name: 'errorpage',
+          params : {errormsg:error}
         })
       })
     },

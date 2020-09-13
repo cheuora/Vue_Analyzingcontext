@@ -1,7 +1,8 @@
 
 <template>
   <div id="app">
-    <h1 id="toc_0">Analyzing context</h1>
+    <h1 id="toc_0"><router-link to='/'>
+        Analyzing context</router-link></h1>
 
     <p>Tools for analyzing complicate context for developers&hellip;</p>
     <br><br>
@@ -14,10 +15,20 @@
 <script>
 //import FramePage from './components/FrontPage.vue'
 export default {
-  // name: 'App',
+  name: 'App',
   // components: {
   //   FramePage
   // }
+    methods:{
+        goHome(){
+            var router = this.$router 
+            router.push({
+                name:Home,
+            })
+        }
+    }
+
+
 }
 </script>
 

@@ -22,11 +22,11 @@ Vue.use(VueRouter)
     name: 'mindmapresult',
     component: () => import('../components/MindmapResult.vue')
   },
-  // {
-  //   path: '/none',
-  //   name: 'None',
-  //   component: () => import('../views/None.vue')
-  // },
+  {
+    path: '/errorpage',
+    name: 'errorpage',
+    component: () => import('../components/errorPage.vue')
+  },
   
 ]
 
