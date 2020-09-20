@@ -10,7 +10,7 @@
              <js-mind :values="mind" :options="options" ref="jsMind" width='200px' height="400px"></js-mind>
              <br>
         <center>
-          <a v-on:click.once="test"><b>Get Result</b></a> &nbsp;|
+          <a v-on:click.once="getResult"><b>Get Result</b></a> &nbsp;|
           <label for="import"><b>Import map</b></label> &nbsp;|
           <a v-on:click.once="saveLocalFile"><b>Export map</b></a>
   
@@ -91,7 +91,7 @@ export default {
     this.jm.enable_edit()
   },
   methods:{
-    test(){
+    getResult(){
       var mind_data = this.jm.get_data('node_array');
       var mind_tree = this.jm.get_data('node_tree')
       var mind_data_str = jsMind.util.json.json2string(mind_data.data);

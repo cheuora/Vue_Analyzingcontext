@@ -23,6 +23,11 @@ Vue.use(VueRouter)
     component: () => import('../components/MindmapResult.vue')
   },
   {
+    path: '/mcdcinput',
+    name: 'mcdcinput',
+    component: () => import('../components/MCDCInput.vue')
+  },
+  {
     path: '/errorpage',
     name: 'errorpage',
     component: () => import('../components/errorPage.vue')
