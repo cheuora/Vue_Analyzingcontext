@@ -26,6 +26,10 @@ Vue.use(VueRouter)
     path: '/mcdcinput',
     name: 'mcdcinput',
     component: () => import('../components/MCDCInput.vue')
+  },  {
+    path: '/mcdcresult',
+    name: 'mcdcresult',
+    component: () => import('../components/MCDCResult.vue')
   },
   {
     path: '/errorpage',

@@ -5,6 +5,7 @@
         <h5>Enter (Java like)pseudo code below!</h5>
 
           <prism-editor class="my-editor height-300" v-model="code" :highlight="highlighter" line-numbers></prism-editor>
+          <br>
           <button @click="getResult">Get Result</button>
 
         </center>
@@ -49,6 +50,8 @@
   import 'prismjs/components/prism-clike';
   import 'prismjs/components/prism-javascript';
   import 'prismjs/themes/prism-tomorrow.css'; // import syntax highlighting styles
+  import axios from 'axios';
+
 
   var temp = "/** Sample **/ \n if ( a || b){ \n    print a;\n}\nelse if ( c && d || e){\n    print b;\n}"
  
@@ -58,11 +61,31 @@ export default {
     },
     data: () => ({ code: temp }),
     methods: {
+
       highlighter(code) {
         return highlight(code, languages.js); //returns html
       },
       getResult(){
           console.log(this.code)
+          var router = this.$router 
+
+          axios({
+            method : 'post',
+            url : 'http://172.22.228.142:5000/mcdcresult',
+            data : {
+              codes : this.code,
+            }
+          }).then(function(response){
+            router.push({
+              name: 'mcdcresult',
+              params: {tabledata:response.data}
+            })
+          }).catch(function(error){
+            router.push({
+              name: 'errorpage',
+              params : {errormsg:error}
+            })
+          })
       }
     },
 

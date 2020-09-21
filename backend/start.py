@@ -88,15 +88,14 @@ def changeSingleQuoteToHTMLCode(stringValues):
 
 
 
-@app.route('/ECTCases', methods=['POST'])
-def ECTCases():
+@app.route('/mcdcresult', methods=['POST'])
+def MCDCCases():
 
     try:
-        #authkey = request.form['authkey']
-        authkey = request.cookies.get('authkey')
+        #authkey = request.cookies.get('authkey')
 
         #code_data = "```" + request.form['Codes'].decode('UTF-8') + "```"
-        code_data = "```" + request.form['Codes'] + "```"
+        code_data = "```" + request.json['codes'] + "```"
         resultList = MakeResults(code_data)
         data = ''
         for i in range(len(resultList)):
@@ -106,7 +105,9 @@ def ECTCases():
         data = data.replace('@','()')
         xlsxFileName = save_result_excel(data)
         
-        return render_template('ECT_Cases.html', cases=data, key=authkey, xlsxfile='temp/'+xlsxFileName)
+        #return render_template('ECT_Cases.html', cases=data, key=authkey, xlsxfile='temp/'+xlsxFileName)
+        return data
+
 
     except :
         var = traceback.format_exc()

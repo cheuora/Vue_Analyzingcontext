@@ -1,0 +1,25 @@
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:36:01] "[33mGET / HTTP/1.1[0m" 404 -
+INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:36:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:36:11] "[33mGET / HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:41:21] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
+INFO:root:Traceback (most recent call last):
+  File "start.py", line 99, in MCDCCases
+    resultList = MakeResults(code_data)
+  File "/home/cheuora/Vue_Analyzingcontext/backend/libs/MakeCombination.py", line 253, in MakeResults
+    filter_func= _is_validate_combination, order=1, random_seed=3)
+TypeError: from_dict() got an unexpected keyword argument 'order'
+
+INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:41:21] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:43:13] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
+INFO:root:Traceback (most recent call last):
+  File "start.py", line 99, in MCDCCases
+    resultList = MakeResults(code_data)
+  File "/home/cheuora/Vue_Analyzingcontext/backend/libs/MakeCombination.py", line 253, in MakeResults
+    filter_func= _is_validate_combination, order=1, random_seed=3)
+TypeError: from_dict() got an unexpected keyword argument 'order'
+
+INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:43:13] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
