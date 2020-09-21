@@ -1,1 +1,3 @@
 frontend/node_modules/
+backend/libs/__pycache__/
+backend/static/temp/
