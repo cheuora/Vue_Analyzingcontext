@@ -1,8 +1,9 @@
 <template>
     <div class="main">
         <h3>Scenario Result</h3>
-
+        <center>
         <p v-html="table"></p>
+        </center>
     </div>
 </template>
 

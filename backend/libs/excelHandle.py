@@ -6,7 +6,7 @@ from libs.makeTestingData import makeTestData
 from libs.makeTestingData import ClosestValue
 import pyparsing
 #TEMP_DIR='/root/AnalztingContext/AnanyzingContext/static/temp/' #change when install in other site
-TEMP_DIR = '/root/AnanyzingContext/static/temp/'
+TEMP_DIR = '/home/cheuora/Vue_Analyzingcontext/frontend/src/assets/tmp/'
 def save_result_excel(resultData):
 	#resultData(html)을 읽어들여 excel파일로 변환후 저장하는 함수.
 	h3Start,h3End = pyparsing.makeHTMLTags("h3")

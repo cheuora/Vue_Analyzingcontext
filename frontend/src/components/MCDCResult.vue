@@ -1,8 +1,10 @@
 <template>
     <div class="main">
         <h3>MCDC Result</h3>
-
+        <center>
         <p v-html="table"></p>
+                <button @click="download">Down</button>
+        </center>
     </div>
 </template>
 
@@ -15,9 +17,14 @@
     data() {
       return {
         table: this.$route.params.tabledata
+        url : "/assets/tmp"
       }
     },
-    methods: {},
+    methods: {
+      download() {
+        
+      }
+    },
   } 
 
 </script>
