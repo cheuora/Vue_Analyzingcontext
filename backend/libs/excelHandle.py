@@ -6,8 +6,7 @@ from libs.makeTestingData import makeTestData
 from libs.makeTestingData import ClosestValue
 import pyparsing
 #TEMP_DIR='/root/AnalztingContext/AnanyzingContext/static/temp/' #change when install in other site
-TEMP_DIR = '/home/cheuora/Vue_Analyzingcontext/frontend/src/assets/tmp/'
-def save_result_excel(resultData):
+def save_result_excel(resultData, tempPath):
 	#resultData(html)을 읽어들여 excel파일로 변환후 저장하는 함수.
 	h3Start,h3End = pyparsing.makeHTMLTags("h3")
 	tableStart,tableEnd = pyparsing.makeHTMLTags("table")
@@ -31,7 +30,7 @@ def save_result_excel(resultData):
 
 	try:
 		xlsxFile = str(uuid.uuid4()).replace("-", "")+".xlsx"
-		workbook = xlsxwriter.Workbook(TEMP_DIR + xlsxFile)
+		workbook = xlsxwriter.Workbook(tempPath + xlsxFile)
 		merge_format = workbook.add_format({'align': 'center', 'bold' : 1})
 		worksheet = workbook.add_worksheet()
 		#write Data here

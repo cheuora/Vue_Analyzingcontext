@@ -21,18 +21,16 @@ import traceback
 app = Flask(__name__)
 CORS(app)
 
-#import importlib
-#importlib.reload(sys)
-
-#sys.setdefaultencoding('utf-8')
+import os
 
 HOST = 'localhost'
 SQLPORT = 3306
 DB_USER = 'db_heyheyclub'
-DB_USER_PWD = 'janux000'
+DB_USER_PWD = ''
 MAX_TIME = 3600
 #MAX_TIME = 3600
 PAID_USER_MAX_TIME = 3600
+TEMP_PATH = os.getcwd() + '/templates/temp/'
 
 
 logging.basicConfig(filename='./WSGI.log',level=logging.DEBUG)
@@ -103,10 +101,10 @@ def MCDCCases():
             #print resultList[i]
 
         data = data.replace('@','()')
-        xlsxFileName = save_result_excel(data)
+        xlsxFileName = save_result_excel(data, TEMP_PATH)
         
         #return render_template('ECT_Cases.html', cases=data, key=authkey, xlsxfile='temp/'+xlsxFileName)
-        return data
+        return data, xlsxFileName
 
 
     except :
