@@ -1,0 +1,19 @@
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 11:58:05] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 11:58:05] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 11:58:08] "[37mGET /static/temp/20b640f6f9d84fb596a32c4917fdcf9a.xlsx HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 12:17:55] "[37mOPTIONS /mindmap HTTP/1.1[0m" 200 -
+INFO:root:Traceback (most recent call last):
+  File "start.py", line 139, in GetMindmapCases
+    DividedGivenArray = devideByFirstItem(GivenPath)
+  File "start.py", line 55, in devideByFirstItem
+    if array[0] in tempFirstItems:
+IndexError: list index out of range
+
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 12:17:55] "[37mPOST /mindmap HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 12:18:13] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 12:18:14] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 13:50:04] "[37mGET /static/kor/Helphome.html HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 13:50:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
