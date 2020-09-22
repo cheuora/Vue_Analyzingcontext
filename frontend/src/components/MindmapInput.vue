@@ -124,17 +124,21 @@ export default {
         var nodeid = jsMind.util.uuid.newid();
         var topic = 'new Node';
         var node = this.jm.add_node(selected_node, nodeid, topic);
+
     },
     onMoveUp(){
       var selected_id =this.jm.get_selected_node()
         if(!selected_id){alert('please select a node first.');return;}
         this.jm.move_node(selected_id,'_first_');
+
+
     },
     onMoveDown(){
       var selected_id = this.jm.get_selected_node();
         if(!selected_id){alert('please select a node first.');return;}
 
-        this.jm.move_node(selected_id,'_last_');
+        this.jm.move_node(selected_id,'_last_');        
+
     },
     onRemoveNode(){
       var selected_id = this.get_selected_nodeid();
