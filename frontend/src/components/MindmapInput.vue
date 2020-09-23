@@ -97,9 +97,11 @@ export default {
       var mind_data_str = jsMind.util.json.json2string(mind_data.data);
       var mind_tree_str = jsMind.util.json.json2string(mind_tree.data);
       var router = this.$router 
+      var url = window.location.origin;
+      var temp = url.replace(":8080", "")
       axios({
         method : 'post',
-        url : 'http://localhost:5000/mindmap',
+        url : temp + ':5000/mindmap',
         data : {
           mindMapData : mind_data_str,
           mindTreeData : mind_tree_str,

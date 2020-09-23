@@ -21,19 +21,23 @@ export default{
     data(){ 
 
         return{
-            link: 'http://localhost:5000/static/Helphome_eng.html'
+            link: ' '
         }
 
     },
     mounted(){
+        var url = window.location.origin;
+        var temp = url.replace(":8080", "")
         axios.get('https://extreme-ip-lookup.com/json').then(res => {
             if (res.data['country']=='South Korea'){
-                this.link = 'http://localhost:5000/static/kor/Helphome.html'
+                this.link = temp + ':5000/static/kor/Helphome.html'
             }
             else if(res.data['country']=='Japan'){
-                this.link = 'http://localhost:5000/static/jpn/Helphome_jpn.html'
+                this.link = temp + ':5000/static/jpn/Helphome_jpn.html'
 
             }
+            else
+                this.link = temp + ':5000/static/Helphome_eng.html'
         })
 
     }
