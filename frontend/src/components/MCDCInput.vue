@@ -66,19 +66,21 @@ export default {
         return highlight(code, languages.js); //returns html
       },
       getResult(){
-          console.log(this.code)
           var router = this.$router 
 
           axios({
             method : 'post',
-            url : 'http://172.22.228.142:5000/mcdcresult',
+            url : 'http://localhost:5000/mcdcresult',
             data : {
               codes : this.code,
             }
           }).then(function(response){
+            var responseData
+            responseData = response.data.split(":::")
             router.push({
               name: 'mcdcresult',
-              params: {tabledata:response.data}
+              params: {tabledata:responseData[0],
+                       xlsxfile:responseData[1]}
             })
           }).catch(function(error){
             router.push({
