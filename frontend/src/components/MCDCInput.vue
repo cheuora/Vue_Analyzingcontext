@@ -67,10 +67,12 @@ export default {
       },
       getResult(){
           var router = this.$router 
+          var url = window.location.origin;
+          var temp = url.replace(":8080", "");
 
           axios({
             method : 'post',
-            url : 'http://localhost:5000/mcdcresult',
+            url : temp + ':5000/mcdcresult',
             data : {
               codes : this.code,
             }
