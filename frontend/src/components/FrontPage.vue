@@ -14,18 +14,29 @@
 </style>
 
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 
 export default{
-
 
     data(){ 
 
         return{
-            link: 'http://localhost:5000/static/kor/Helphome.html'
+            link: 'http://localhost:5000/static/Helphome_eng.html'
         }
 
-        }
+    },
+    mounted(){
+        axios.get('https://extreme-ip-lookup.com/json').then(res => {
+            if (res.data['country']=='South Korea'){
+                this.link = 'http://localhost:5000/static/kor/Helphome.html'
+            }
+            else if(res.data['country']=='Japan'){
+                this.link = 'http://localhost:5000/static/jpn/Helphome_jpn.html'
+
+            }
+        })
+
+    }
 
 }
 
