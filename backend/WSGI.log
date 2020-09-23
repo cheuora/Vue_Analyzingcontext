@@ -1,159 +1,19 @@
 INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 11:58:05] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 11:58:05] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 11:58:08] "[37mGET /static/temp/20b640f6f9d84fb596a32c4917fdcf9a.xlsx HTTP/1.1[0m" 200 -
 INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:36:01] "[33mGET / HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:36:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:36:11] "[33mGET / HTTP/1.1[0m" 404 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:41:21] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 12:17:55] "[37mOPTIONS /mindmap HTTP/1.1[0m" 200 -
 INFO:root:Traceback (most recent call last):
-  File "start.py", line 99, in MCDCCases
-    resultList = MakeResults(code_data)
-  File "/home/cheuora/Vue_Analyzingcontext/backend/libs/MakeCombination.py", line 253, in MakeResults
-    filter_func= _is_validate_combination, order=1, random_seed=3)
-TypeError: from_dict() got an unexpected keyword argument 'order'
+  File "start.py", line 139, in GetMindmapCases
+    DividedGivenArray = devideByFirstItem(GivenPath)
+  File "start.py", line 55, in devideByFirstItem
+    if array[0] in tempFirstItems:
+IndexError: list index out of range
 
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:41:21] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:43:13] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:root:Traceback (most recent call last):
-  File "start.py", line 99, in MCDCCases
-    resultList = MakeResults(code_data)
-  File "/home/cheuora/Vue_Analyzingcontext/backend/libs/MakeCombination.py", line 253, in MakeResults
-    filter_func= _is_validate_combination, order=1, random_seed=3)
-TypeError: from_dict() got an unexpected keyword argument 'order'
-
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 12:43:13] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 12:17:55] "[37mPOST /mindmap HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 12:18:13] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 12:18:14] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
 INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 13:58:05] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:root:Traceback (most recent call last):
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 316, in close
-    self._store_workbook()
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 634, in _store_workbook
-    raise e
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 632, in _store_workbook
-    allowZip64=self.allow_zip64)
-  File "/usr/lib/python3.6/zipfile.py", line 1113, in __init__
-    self.fp = io.open(file, filemode)
-PermissionError: [Errno 13] Permission denied: '/root/AnanyzingContext/static/temp/4f86dd8b1a3843b2bdc250185db4db2c.xlsx'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "start.py", line 106, in MCDCCases
-    xlsxFileName = save_result_excel(data)
-  File "/home/cheuora/Vue_Analyzingcontext/backend/libs/excelHandle.py", line 47, in save_result_excel
-    workbook.close()
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 318, in close
-    raise FileCreateError(e)
-xlsxwriter.exceptions.FileCreateError: [Errno 13] Permission denied: '/root/AnanyzingContext/static/temp/4f86dd8b1a3843b2bdc250185db4db2c.xlsx'
-
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 13:58:05] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:01:00] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:01:00] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:01:38] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:01:38] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:10:51] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:root:Traceback (most recent call last):
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 316, in close
-    self._store_workbook()
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 634, in _store_workbook
-    raise e
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 632, in _store_workbook
-    allowZip64=self.allow_zip64)
-  File "/usr/lib/python3.6/zipfile.py", line 1113, in __init__
-    self.fp = io.open(file, filemode)
-PermissionError: [Errno 13] Permission denied: '/tmp82961f5b00944ea098e4788b089443c6.xlsx'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "start.py", line 106, in MCDCCases
-    xlsxFileName = save_result_excel(data)
-  File "/home/cheuora/Vue_Analyzingcontext/backend/libs/excelHandle.py", line 47, in save_result_excel
-    workbook.close()
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 318, in close
-    raise FileCreateError(e)
-xlsxwriter.exceptions.FileCreateError: [Errno 13] Permission denied: '/tmp82961f5b00944ea098e4788b089443c6.xlsx'
-
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:10:51] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:11:42] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:11:42] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:13:52] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:13:52] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:18:17] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:18:17] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:51:43] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:root:Traceback (most recent call last):
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 316, in close
-    self._store_workbook()
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 634, in _store_workbook
-    raise e
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 632, in _store_workbook
-    allowZip64=self.allow_zip64)
-  File "/usr/lib/python3.6/zipfile.py", line 1113, in __init__
-    self.fp = io.open(file, filemode)
-FileNotFoundError: [Errno 2] No such file or directory: '~/Vue_Analyzingcontext/frontend/src/assets/tmp/e507146e06ce40178568daea2833efcb.xlsx'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "start.py", line 106, in MCDCCases
-    xlsxFileName = save_result_excel(data)
-  File "/home/cheuora/Vue_Analyzingcontext/backend/libs/excelHandle.py", line 47, in save_result_excel
-    workbook.close()
-  File "/home/cheuora/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 318, in close
-    raise FileCreateError(e)
-xlsxwriter.exceptions.FileCreateError: [Errno 2] No such file or directory: '~/Vue_Analyzingcontext/frontend/src/assets/tmp/e507146e06ce40178568daea2833efcb.xlsx'
-
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:51:43] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:53:08] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:53:08] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:58:57] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.22.224.1 - - [21/Sep/2020 14:58:57] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:17] "[33mGET /asset HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:20] "[33mGET /assets HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:27] "[33mGET /assets/temp HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:41] "[33mGET /static/temp HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:45] "[33mGET /static HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:50] "[33mGET /temp HTTP/1.1[0m" 404 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:10:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:14:23] "[37mGET /static/temp/test.py HTTP/1.1[0m" 200 -
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:14:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:25:31] "[37mOPTIONS /mcdcresult HTTP/1.1[0m" 200 -
-INFO:root:Traceback (most recent call last):
-  File "/usr/local/lib/python3.6/dist-packages/xlsxwriter/workbook.py", line 311, in close
-    self._store_workbook()
-  File "/usr/local/lib/python3.6/dist-packages/xlsxwriter/workbook.py", line 627, in _store_workbook
-    raise e
-  File "/usr/local/lib/python3.6/dist-packages/xlsxwriter/workbook.py", line 625, in _store_workbook
-    allowZip64=self.allow_zip64)
-  File "/usr/lib/python3.6/zipfile.py", line 1113, in __init__
-    self.fp = io.open(file, filemode)
-FileNotFoundError: [Errno 2] No such file or directory: '/root/Vue_Analyzingcontext/backend/templates/temp/ce905b4f9dd84602b46a07921289004e.xlsx'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "start.py", line 104, in MCDCCases
-    xlsxFileName = save_result_excel(data, TEMP_PATH)
-  File "/root/Vue_Analyzingcontext/backend/libs/excelHandle.py", line 46, in save_result_excel
-    workbook.close()
-  File "/usr/local/lib/python3.6/dist-packages/xlsxwriter/workbook.py", line 313, in close
-    raise FileCreateError(e)
-xlsxwriter.exceptions.FileCreateError: [Errno 2] No such file or directory: '/root/Vue_Analyzingcontext/backend/templates/temp/ce905b4f9dd84602b46a07921289004e.xlsx'
-
-INFO:werkzeug:172.17.0.1 - - [21/Sep/2020 12:25:31] "[37mPOST /mcdcresult HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 13:50:04] "[37mGET /static/kor/Helphome.html HTTP/1.1[0m" 200 -
+INFO:werkzeug:172.17.0.1 - - [22/Sep/2020 13:50:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

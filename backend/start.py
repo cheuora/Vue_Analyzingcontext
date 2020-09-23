@@ -30,7 +30,7 @@ DB_USER_PWD = ''
 MAX_TIME = 3600
 #MAX_TIME = 3600
 PAID_USER_MAX_TIME = 3600
-TEMP_PATH = os.getcwd() + '/templates/temp/'
+TEMP_PATH = os.getcwd() + '/static/temp/'
 
 
 logging.basicConfig(filename='./WSGI.log',level=logging.DEBUG)
@@ -104,7 +104,9 @@ def MCDCCases():
         xlsxFileName = save_result_excel(data, TEMP_PATH)
         
         #return render_template('ECT_Cases.html', cases=data, key=authkey, xlsxfile='temp/'+xlsxFileName)
-        return data, xlsxFileName
+        #merge data + xlsxFileName 
+        retData = data + ":::" + xlsxFileName
+        return retData
 
 
     except :
