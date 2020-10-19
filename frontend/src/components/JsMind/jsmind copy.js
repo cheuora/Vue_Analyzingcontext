@@ -224,9 +224,7 @@
                     logger.error('the parent_node[id=' + parent_node + '] can not be found.');
                     return null;
                 } else {
-     
                     return this.add_node(the_parent_node, nodeid, topic, data, idx, direction, expanded);
-
                 }
             }
             var nodeindex = idx || -1;
@@ -1360,7 +1358,6 @@
         },
 
         insert_node_after: function (node_after, nodeid, topic, data) {
-
             if (this.get_editable()) {
                 var afterid = jm.util.is_node(node_after) ? node_after.id : node_after;
                 var node = this.mind.insert_node_after(node_after, nodeid, topic, data);
@@ -1662,8 +1659,7 @@
             for (var i = 0; i < l; i++) {
                 this.event_handles[i](type, data);
             }
-        },
-
+        }
 
     };
 
@@ -2418,41 +2414,7 @@
 
         add_node: function (node) {
             this.create_node_element(node, this.e_nodes);
-            console.log(node)
-            console.log("result : " + this.isWhenIncluded(node))
             this.init_nodes_size(node);
-        },
-        add_yes_no: function(node_after){
-            var yes_id = jm.util.uuid.newid();
-            var no_id = jm.util.uuid.newid();
-
-            //console.log(node_after)
-
-        },
-        isWhenIncluded: function(node) {
-            // console.log('isWhenIncluded')
-            // console.log(node['topic'])
-            // console.log(node['isroot'])
-            var retVal = false
-
-
-            if (node['isroot']==true){
-                retVal = false
-            }
-
-            if (node['topic']=='When'){
-                return true
-                console.log('sfksfmsdksssssss')
-                console.log('retVal :' + retVal)
-            }
-            if (retVal == false)
-                this.isWhenIncluded(node['parent']);
-            
-            console.log('retVal2 :' + retVal)
-
-            return retVal
-            
-
         },
 
         create_node_element: function (node, parent_node) {

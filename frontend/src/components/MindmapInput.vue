@@ -89,7 +89,9 @@ export default {
   mounted() {
     this.jm= this.$refs.jsMind.jm
     this.jm.enable_edit()
+
   },
+
   methods:{
     getResult(){
       var mind_data = this.jm.get_data('node_array');
