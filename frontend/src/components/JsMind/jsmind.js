@@ -215,68 +215,8 @@
             } else {
                 logger.error('root node is already exist');
             }
-        },
-
-        add_node: function (parent_node, nodeid, topic, data, idx, direction, expanded, from) {
-            if (!jm.util.is_node(parent_node)) {
-                var the_parent_node = this.get_node(parent_node);
-                if (!the_parent_node) {
-                    logger.error('the parent_node[id=' + parent_node + '] can not be found.');
-                    return null;
-                } else {
-     
-                    return this.add_node(the_parent_node, nodeid, topic, data, idx, direction, expanded, from);
-
-                }
-            }
-            var nodeindex = idx || -1;
-            var node = null;
-            if (parent_node.isroot) {
-                var d = jm.direction.right;
-                if (isNaN(direction)) {
-                    var children = parent_node.children;
-                    var children_len = children.length;
-                    var r = 0;
-                    for (var i = 0; i < children_len; i++) { if (children[i].direction === jm.direction.left) { r--; } else { r++; } }
-                    d = (children_len > 1 && r > 0) ? jm.direction.left : jm.direction.right
-                } else {
-                    d = (direction != jm.direction.left) ? jm.direction.right : jm.direction.left;
-                }
-                node = new jm.node(nodeid, nodeindex, topic, data, false, parent_node, d, expanded);
-            } else {
-                node = new jm.node(nodeid, nodeindex, topic, data, false, parent_node, parent_node.direction, expanded);
-            }
-            if (this._put_node(node)) {
-                parent_node.children.push(node);
-                this._reindex(parent_node);
-
-
-
-            } else {
-                logger.error('fail, the nodeid \'' + node.id + '\' has been already exist.');
-                node = null;
-            }
-
-
-            console.log(node['isroot'])
-            console.log('name: ' + node['topic'])
-
-                
-            if (from != 'insert' && this.isWhenIncluded(node)){
-                //add Yes No Tail
-                console.log("add_node")
-                var yes_id = jm.util.uuid.newid();
-                //var no_id = jm.util.uuid.newid();
-                this.add_node(node,yes_id, "Yes",undefined,undefined,undefined,true,'insert')
-    
-                //this.insert_node_after(node,yes_id,"Yes")
-
-            }
-
-            
-            return node;
-        },        
-        add_node_old: function (parent_node, nodeid, topic, data, idx, direction, expanded) {
+        },  
+        add_node: function (parent_node, nodeid, topic, data, idx, direction, expanded) {
             if (!jm.util.is_node(parent_node)) {
                 var the_parent_node = this.get_node(parent_node);
                 if (!the_parent_node) {
@@ -362,26 +302,12 @@
                 }
             }
             var node_index = node_after.index + 0.5;
-            console.log("insert_node_after")
-            return this.add_node(node_after.parent, nodeid, topic, data, node_index,'','','insert')
+            var reVal= this.add_node(node_after.parent, nodeid, topic, data, node_index,'','','insert')
+            return reVal
 
         },
-        isWhenIncluded: function(node) {
 
-            if (node['isroot']==true){
-                return false
-            }
 
-            if (node['topic']=='When'){
-                
-                return true 
-
-            }
-            
-            return this.isWhenIncluded(node['parent']);
-                        
-
-        },
 
         get_node_after: function (node) {
             if (!jm.util.is_node(node)) {
@@ -416,7 +342,6 @@
             if (!parentid) {
                 parentid = node.parent.id;
             }
-            console.log("move_node")
             return this._move_node(node, beforeid, parentid, direction);
         },
 
@@ -1416,6 +1341,7 @@
                     this.expand_node(parent_node);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'add_node', data: [parent_node.id, nodeid, topic, data], node: nodeid });
                 }
+
                 return node;
             } else {
                 logger.error('fail, this mind map is not editable');
@@ -1451,11 +1377,33 @@
                     this.view.show(false);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'insert_node_after', data: [afterid, nodeid, topic, data], node: nodeid });
                 }
+                console.log("insert_node_after")
+                if (this.isWhenIncluded(node)){
+                    console.log('When included')
+                    this.add_YN_tail(node)
+
+                }
                 return node;
             } else {
                 logger.error('fail, this mind map is not editable');
                 return null;
             }
+        },
+        isWhenIncluded: function(node) {
+
+            if (node['isroot']==true){
+                return false
+            }
+
+            if (node['topic']=='When'){
+                
+                return true 
+
+            }
+            
+            return this.isWhenIncluded(node['parent']);
+                        
+
         },
 
         remove_node: function (node) {
@@ -1524,10 +1472,22 @@
                     this.view.show(false);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'move_node', data: [nodeid, beforeid, parentid, direction], node: nodeid });
                 }
+                console.log("move_node")
+                if (this.isWhenIncluded(node)){
+                    this.add_YN_tail(node)
+
+                }
             } else {
                 logger.error('fail, this mind map is not editable');
                 return;
             }
+        },
+        add_YN_tail: function(node){
+            var yes_id = jm.util.uuid.newid();
+            var no_id = jm.util.uuid.newid();
+            this.add_node(node,yes_id,"Yes")
+            this.add_node(node,no_id,"No")
+
         },
 
         select_node: function (node) {
