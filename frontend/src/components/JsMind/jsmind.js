@@ -1330,7 +1330,7 @@
             return this.mind.get_node(nodeid);
         },
 
-        add_node: function (parent_node, nodeid, topic, data) {
+        add_node: function (parent_node, nodeid, topic, data, from) {
             if (this.get_editable()) {
                 var node = this.mind.add_node(parent_node, nodeid, topic, data);
                 if (!!node) {
@@ -1340,6 +1340,10 @@
                     this.view.reset_node_custom_style(node);
                     this.expand_node(parent_node);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'add_node', data: [parent_node.id, nodeid, topic, data], node: nodeid });
+                }
+
+                if (this.isWhenIncluded(node) && from != 'break'){
+                    this.add_YN_tail(node)
                 }
 
                 return node;
@@ -1377,9 +1381,7 @@
                     this.view.show(false);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'insert_node_after', data: [afterid, nodeid, topic, data], node: nodeid });
                 }
-                console.log("insert_node_after")
                 if (this.isWhenIncluded(node)){
-                    console.log('When included')
                     this.add_YN_tail(node)
 
                 }
@@ -1395,7 +1397,7 @@
                 return false
             }
 
-            if (node['topic']=='When'){
+            if (node['id']=='when'){
                 
                 return true 
 
@@ -1485,8 +1487,8 @@
         add_YN_tail: function(node){
             var yes_id = jm.util.uuid.newid();
             var no_id = jm.util.uuid.newid();
-            this.add_node(node,yes_id,"Yes")
-            this.add_node(node,no_id,"No")
+            this.add_node(node,yes_id,"Yes",'','break')
+            this.add_node(node,no_id,"No",'','break')
 
         },
 
