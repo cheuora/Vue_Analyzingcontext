@@ -217,7 +217,66 @@
             }
         },
 
-        add_node: function (parent_node, nodeid, topic, data, idx, direction, expanded) {
+        add_node: function (parent_node, nodeid, topic, data, idx, direction, expanded, from) {
+            if (!jm.util.is_node(parent_node)) {
+                var the_parent_node = this.get_node(parent_node);
+                if (!the_parent_node) {
+                    logger.error('the parent_node[id=' + parent_node + '] can not be found.');
+                    return null;
+                } else {
+     
+                    return this.add_node(the_parent_node, nodeid, topic, data, idx, direction, expanded, from);
+
+                }
+            }
+            var nodeindex = idx || -1;
+            var node = null;
+            if (parent_node.isroot) {
+                var d = jm.direction.right;
+                if (isNaN(direction)) {
+                    var children = parent_node.children;
+                    var children_len = children.length;
+                    var r = 0;
+                    for (var i = 0; i < children_len; i++) { if (children[i].direction === jm.direction.left) { r--; } else { r++; } }
+                    d = (children_len > 1 && r > 0) ? jm.direction.left : jm.direction.right
+                } else {
+                    d = (direction != jm.direction.left) ? jm.direction.right : jm.direction.left;
+                }
+                node = new jm.node(nodeid, nodeindex, topic, data, false, parent_node, d, expanded);
+            } else {
+                node = new jm.node(nodeid, nodeindex, topic, data, false, parent_node, parent_node.direction, expanded);
+            }
+            if (this._put_node(node)) {
+                parent_node.children.push(node);
+                this._reindex(parent_node);
+
+
+
+            } else {
+                logger.error('fail, the nodeid \'' + node.id + '\' has been already exist.');
+                node = null;
+            }
+
+
+            console.log(node['isroot'])
+            console.log('name: ' + node['topic'])
+
+                
+            if (from != 'insert' && this.isWhenIncluded(node)){
+                //add Yes No Tail
+                console.log("add_node")
+                var yes_id = jm.util.uuid.newid();
+                //var no_id = jm.util.uuid.newid();
+                this.add_node(node,yes_id, "Yes",undefined,undefined,undefined,true,'insert')
+    
+                //this.insert_node_after(node,yes_id,"Yes")
+
+            }
+
+            
+            return node;
+        },        
+        add_node_old: function (parent_node, nodeid, topic, data, idx, direction, expanded) {
             if (!jm.util.is_node(parent_node)) {
                 var the_parent_node = this.get_node(parent_node);
                 if (!the_parent_node) {
@@ -249,12 +308,15 @@
             if (this._put_node(node)) {
                 parent_node.children.push(node);
                 this._reindex(parent_node);
+
             } else {
                 logger.error('fail, the nodeid \'' + node.id + '\' has been already exist.');
                 node = null;
             }
+            
             return node;
         },
+
 
         insert_node_before: function (node_before, nodeid, topic, data) {
             if (!jm.util.is_node(node_before)) {
@@ -267,7 +329,7 @@
                 }
             }
             var node_index = node_before.index - 0.5;
-            return this.add_node(node_before.parent, nodeid, topic, data, node_index);
+            return this.add_node(node_before.parent, nodeid, topic, data, node_index,'','','insert');
         },
 
         get_node_before: function (node) {
@@ -300,7 +362,25 @@
                 }
             }
             var node_index = node_after.index + 0.5;
-            return this.add_node(node_after.parent, nodeid, topic, data, node_index);
+            console.log("insert_node_after")
+            return this.add_node(node_after.parent, nodeid, topic, data, node_index,'','','insert')
+
+        },
+        isWhenIncluded: function(node) {
+
+            if (node['isroot']==true){
+                return false
+            }
+
+            if (node['topic']=='When'){
+                
+                return true 
+
+            }
+            
+            return this.isWhenIncluded(node['parent']);
+                        
+
         },
 
         get_node_after: function (node) {
@@ -336,6 +416,7 @@
             if (!parentid) {
                 parentid = node.parent.id;
             }
+            console.log("move_node")
             return this._move_node(node, beforeid, parentid, direction);
         },
 
@@ -2418,42 +2499,31 @@
 
         add_node: function (node) {
             this.create_node_element(node, this.e_nodes);
-            console.log(node)
-            console.log("result : " + this.isWhenIncluded(node))
             this.init_nodes_size(node);
+            
         },
         add_yes_no: function(node_after){
             var yes_id = jm.util.uuid.newid();
             var no_id = jm.util.uuid.newid();
 
-            //console.log(node_after)
-
         },
         isWhenIncluded: function(node) {
-            // console.log('isWhenIncluded')
-            // console.log(node['topic'])
-            // console.log(node['isroot'])
-            var retVal = false
-
 
             if (node['isroot']==true){
-                retVal = false
+                return false
             }
 
             if (node['topic']=='When'){
-                return true
-                console.log('sfksfmsdksssssss')
-                console.log('retVal :' + retVal)
-            }
-            if (retVal == false)
-                this.isWhenIncluded(node['parent']);
-            
-            console.log('retVal2 :' + retVal)
+                
+                return true 
 
-            return retVal
+            }
             
+            return this.isWhenIncluded(node['parent']);
+                        
 
         },
+
 
         create_node_element: function (node, parent_node) {
             var view_data = null;
