@@ -38,8 +38,8 @@ export default {
       mind: {
         /* 마인드 맵의 이름, 작성자, 버전 및 기타 정보를 정의하는 메타 데이터 */
         meta: {
-          name: "example",
-          author: "906106844@qq.com",
+          name: "analyzingcontext.com",
+          author: "cheuora@gmail.com",
           version: "0.2"
         },
         format: "node_array",
@@ -89,7 +89,9 @@ export default {
   mounted() {
     this.jm= this.$refs.jsMind.jm
     this.jm.enable_edit()
+
   },
+
   methods:{
     getResult(){
       var mind_data = this.jm.get_data('node_array');

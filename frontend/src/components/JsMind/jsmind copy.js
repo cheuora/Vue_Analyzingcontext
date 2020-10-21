@@ -215,7 +215,8 @@
             } else {
                 logger.error('root node is already exist');
             }
-        },  
+        },
+
         add_node: function (parent_node, nodeid, topic, data, idx, direction, expanded) {
             if (!jm.util.is_node(parent_node)) {
                 var the_parent_node = this.get_node(parent_node);
@@ -223,9 +224,7 @@
                     logger.error('the parent_node[id=' + parent_node + '] can not be found.');
                     return null;
                 } else {
-     
                     return this.add_node(the_parent_node, nodeid, topic, data, idx, direction, expanded);
-
                 }
             }
             var nodeindex = idx || -1;
@@ -248,15 +247,12 @@
             if (this._put_node(node)) {
                 parent_node.children.push(node);
                 this._reindex(parent_node);
-
             } else {
                 logger.error('fail, the nodeid \'' + node.id + '\' has been already exist.');
                 node = null;
             }
-            
             return node;
         },
-
 
         insert_node_before: function (node_before, nodeid, topic, data) {
             if (!jm.util.is_node(node_before)) {
@@ -269,7 +265,7 @@
                 }
             }
             var node_index = node_before.index - 0.5;
-            return this.add_node(node_before.parent, nodeid, topic, data, node_index,'','','insert');
+            return this.add_node(node_before.parent, nodeid, topic, data, node_index);
         },
 
         get_node_before: function (node) {
@@ -302,12 +298,8 @@
                 }
             }
             var node_index = node_after.index + 0.5;
-            var reVal= this.add_node(node_after.parent, nodeid, topic, data, node_index,'','','insert')
-            return reVal
-
+            return this.add_node(node_after.parent, nodeid, topic, data, node_index);
         },
-
-
 
         get_node_after: function (node) {
             if (!jm.util.is_node(node)) {
@@ -1330,7 +1322,7 @@
             return this.mind.get_node(nodeid);
         },
 
-        add_node: function (parent_node, nodeid, topic, data, from) {
+        add_node: function (parent_node, nodeid, topic, data) {
             if (this.get_editable()) {
                 var node = this.mind.add_node(parent_node, nodeid, topic, data);
                 if (!!node) {
@@ -1341,11 +1333,6 @@
                     this.expand_node(parent_node);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'add_node', data: [parent_node.id, nodeid, topic, data], node: nodeid });
                 }
-
-                if (this.isWhenIncluded(node) && from != 'break'){
-                    this.add_YN_tail(node, true)
-                }
-
                 return node;
             } else {
                 logger.error('fail, this mind map is not editable');
@@ -1371,7 +1358,6 @@
         },
 
         insert_node_after: function (node_after, nodeid, topic, data) {
-
             if (this.get_editable()) {
                 var afterid = jm.util.is_node(node_after) ? node_after.id : node_after;
                 var node = this.mind.insert_node_after(node_after, nodeid, topic, data);
@@ -1381,31 +1367,11 @@
                     this.view.show(false);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'insert_node_after', data: [afterid, nodeid, topic, data], node: nodeid });
                 }
-                if (this.isWhenIncluded(node)){
-                    this.add_YN_tail(node, true)
-
-                }
                 return node;
             } else {
                 logger.error('fail, this mind map is not editable');
                 return null;
             }
-        },
-        isWhenIncluded: function(node) {
-
-            if (node['isroot']==true){
-                return false
-            }
-
-            if (node['id']=='when'){
-                
-                return true 
-
-            }
-            
-            return this.isWhenIncluded(node['parent']);
-                        
-
         },
 
         remove_node: function (node) {
@@ -1474,31 +1440,10 @@
                     this.view.show(false);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'move_node', data: [nodeid, beforeid, parentid, direction], node: nodeid });
                 }
-                console.log("move_node")
-                if (this.isWhenIncluded(node)){
-                    this.add_YN_tail(node)
-
-                }
             } else {
                 logger.error('fail, this mind map is not editable');
                 return;
             }
-        },
-        add_YN_tail: function(node, isInsert = false){
-            var yes_id = jm.util.uuid.newid();
-            var no_id = jm.util.uuid.newid();
-            
-            if ((node['parent']['topic'] == 'Yes' || node['parent']['topic'] == 'No') && isInsert == false){
-                console.log('add_YN is not working')
-            }
-            else{
-                this.add_node(node,yes_id,"Yes",'','break')
-                this.add_node(node,no_id,"No",'','break')
-            }
-            // this.add_node(node,yes_id,"Yes",'','break')
-            // this.add_node(node,no_id,"No",'','break')
-
-
         },
 
         select_node: function (node) {
@@ -1714,8 +1659,7 @@
             for (var i = 0; i < l; i++) {
                 this.event_handles[i](type, data);
             }
-        },
-
+        }
 
     };
 
@@ -2471,30 +2415,7 @@
         add_node: function (node) {
             this.create_node_element(node, this.e_nodes);
             this.init_nodes_size(node);
-            
         },
-        add_yes_no: function(node_after){
-            var yes_id = jm.util.uuid.newid();
-            var no_id = jm.util.uuid.newid();
-
-        },
-        isWhenIncluded: function(node) {
-
-            if (node['isroot']==true){
-                return false
-            }
-
-            if (node['topic']=='When'){
-                
-                return true 
-
-            }
-            
-            return this.isWhenIncluded(node['parent']);
-                        
-
-        },
-
 
         create_node_element: function (node, parent_node) {
             var view_data = null;

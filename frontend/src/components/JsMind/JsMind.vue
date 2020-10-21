@@ -83,6 +83,7 @@ export default {
     this.init()
   },
   watch:{
+
     options(){
      this.$nextTick(()=>{
       this.refresh++
