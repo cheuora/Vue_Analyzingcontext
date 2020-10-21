@@ -18,9 +18,11 @@
 
   export default {
     data() {
+      var temp1 = window.location.origin;
+      var temp = temp1.replace(":8080", "");
       return {
         table: this.$route.params.tabledata,
-        url: "http://localhost:5000/static/temp/" + this.$route.params.xlsxfile
+        url: temp + ":5000/static/temp/" + this.$route.params.xlsxfile
       }
     },
     methods: {

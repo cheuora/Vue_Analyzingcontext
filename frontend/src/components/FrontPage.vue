@@ -2,10 +2,17 @@
     <div class="main">
         <center>
             <h3 id="toc_1"><router-link to="/mindmapinput">MindMap &amp; GWT</router-link></h3>
-            <h3 id="toc_3"><router-link to="/mcdcinput"> Comparison with MC/DC</router-link></h3>
+            <h3 id="toc_3"><router-link to="/mcdcinput">Modified condition/decision coverage</router-link></h3>
             <img src='@/assets/dividingLine.png' width="200px">
             <h3><a v-bind:href="link">   How to Use</a></h3>
+            
+            <br><br><br><br>
+
+            <a href='https://twitter.com/cheuora'><img src="@/assets/twitter.png" width="16px"></a> &nbsp;&nbsp; <a href='mailto:cheuora@gmail.com'><img src="@/assets/gmail.png" width="16px"></a>
+
         </center>
+
+
     </div>
 </template>
 

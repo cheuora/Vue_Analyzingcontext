@@ -55,45 +55,45 @@
 
   var temp = "/** Sample **/ \n if ( a || b){ \n    print a;\n}\nelse if ( c && d || e){\n    print b;\n}"
  
-export default {
-    components: {
-      PrismEditor,
-    },
-    data: () => ({ code: temp }),
-    methods: {
-
-      highlighter(code) {
-        return highlight(code, languages.js); //returns html
+  export default {
+      components: {
+        PrismEditor,
       },
-      getResult(){
-          var router = this.$router 
-          var url = window.location.origin;
-          var temp = url.replace(":8080", "");
+      data: () => ({ code: temp }),
+      methods: {
 
-          axios({
-            method : 'post',
-            url : temp + ':5000/mcdcresult',
-            data : {
-              codes : this.code,
-            }
-          }).then(function(response){
-            var responseData
-            responseData = response.data.split(":::")
-            router.push({
-              name: 'mcdcresult',
-              params: {tabledata:responseData[0],
-                       xlsxfile:responseData[1]}
-            })
-          }).catch(function(error){
-            router.push({
-              name: 'errorpage',
-              params : {errormsg:error}
-            })
-          })
-      }
-    },
+        highlighter(code) {
+          return highlight(code, languages.js); //returns html
+        },
+        getResult(){
+            var router = this.$router 
+            var url = window.location.origin;
+            var temp = url.replace(":8080", "");
 
-};
+            axios({
+              method : 'post',
+              url : temp + ':5000/mcdcresult',
+              data : {
+                codes : this.code,
+              }
+            }).then(function(response){
+              var responseData
+              responseData = response.data.split(":::")
+              router.push({
+                name: 'mcdcresult',
+                params: {tabledata:responseData[0],
+                        xlsxfile:responseData[1]}
+              })
+            }).catch(function(error){
+              router.push({
+                name: 'errorpage',
+                params : {errormsg:error}
+              })
+            })
+        }
+      },
+
+  };
 
 </script>
 
