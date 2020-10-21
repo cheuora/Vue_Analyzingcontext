@@ -1343,7 +1343,7 @@
                 }
 
                 if (this.isWhenIncluded(node) && from != 'break'){
-                    this.add_YN_tail(node)
+                    this.add_YN_tail(node, true)
                 }
 
                 return node;
@@ -1382,7 +1382,7 @@
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'insert_node_after', data: [afterid, nodeid, topic, data], node: nodeid });
                 }
                 if (this.isWhenIncluded(node)){
-                    this.add_YN_tail(node)
+                    this.add_YN_tail(node, true)
 
                 }
                 return node;
@@ -1484,11 +1484,20 @@
                 return;
             }
         },
-        add_YN_tail: function(node){
+        add_YN_tail: function(node, isInsert = false){
             var yes_id = jm.util.uuid.newid();
             var no_id = jm.util.uuid.newid();
-            this.add_node(node,yes_id,"Yes",'','break')
-            this.add_node(node,no_id,"No",'','break')
+            
+            if ((node['parent']['topic'] == 'Yes' || node['parent']['topic'] == 'No') && isInsert == false){
+                console.log('add_YN is not working')
+            }
+            else{
+                this.add_node(node,yes_id,"Yes",'','break')
+                this.add_node(node,no_id,"No",'','break')
+            }
+            // this.add_node(node,yes_id,"Yes",'','break')
+            // this.add_node(node,no_id,"No",'','break')
+
 
         },
 
