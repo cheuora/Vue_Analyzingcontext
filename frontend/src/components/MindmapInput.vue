@@ -61,8 +61,8 @@ export default {
              //expanded: false,
              direction: "right"
           },
-          { id: "condition1", parentid: "given", topic: "Condition1" },
-          { id: "condition2", parentid: "given", topic: "Condition2" },
+          // { id: "open1", parentid: "open", topic: "on GitHub" },
+          // { id: "open2", parentid: "open", topic: "BSD License" },
 
           // {
           //   id: "powerful",
@@ -87,20 +87,32 @@ export default {
     };
   },
   mounted() {
+    var storeEmpty = this.$store.state.mapData;
+
     this.jm= this.$refs.jsMind.jm
     this.jm.enable_edit()
+    const _this = this
 
+    if (storeEmpty != 'none'){
+      var mindData = jsMind.util.json.string2json(storeEmpty);
+      _this.mind = mindData;
+      _this.jm.show(mindData);
+    }
+    
   },
 
   methods:{
     getResult(){
       var mind_data = this.jm.get_data('node_array');
-      var mind_tree = this.jm.get_data('node_tree')
+      var mind_tree = this.jm.get_data('node_tree');
       var mind_data_str = jsMind.util.json.json2string(mind_data.data);
       var mind_tree_str = jsMind.util.json.json2string(mind_tree.data);
       var router = this.$router 
       var url = window.location.origin;
       var temp = url.replace(":8080", "")
+
+      this.$store.state.mapData = jsMind.util.json.json2string(mind_tree);
+
       axios({
         method : 'post',
         url : temp + ':5000/mindmap',
