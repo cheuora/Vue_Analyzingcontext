@@ -59,6 +59,13 @@
       components: {
         PrismEditor,
       },
+      mounted() {
+        var isCodeNone = this.$store.state.codeData;
+        if (isCodeNone != 'none'){
+          this.code = isCodeNone;
+        }
+      },
+
       data: () => ({ code: temp }),
       methods: {
 
@@ -69,6 +76,8 @@
             var router = this.$router 
             var url = window.location.origin;
             var temp = url.replace(":8080", "");
+
+            this.$store.state.codeData = this.code;
 
             axios({
               method : 'post',

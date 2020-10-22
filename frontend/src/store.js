@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     state: {
-        mapData : "none"
+        mapData : "none",
+        codeData : "none"
     }
 })
