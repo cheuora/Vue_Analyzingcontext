@@ -61,8 +61,8 @@ export default {
              //expanded: false,
              direction: "right"
           },
-          // { id: "open1", parentid: "open", topic: "on GitHub" },
-          // { id: "open2", parentid: "open", topic: "BSD License" },
+          { id: "condition1", parentid: "given", topic: "condition1" },
+          { id: "condition2", parentid: "given", topic: "condition2" },
 
           // {
           //   id: "powerful",
