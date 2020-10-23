@@ -22,3 +22,91 @@ INFO:werkzeug:172.22.224.1 - - [23/Sep/2020 14:14:03] "[37mGET /static/kor/Help
 INFO:werkzeug:172.22.224.1 - - [23/Sep/2020 14:14:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:root:Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 320, in close
+    self._store_workbook()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 638, in _store_workbook
+    raise e
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 636, in _store_workbook
+    allowZip64=self.allow_zip64)
+  File "/usr/lib/python3.6/zipfile.py", line 1113, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Vue_Analyzingcontext/backend/static/temp/93c459e9e6934eef84c8378dc1abf14b.xlsx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./start.py", line 104, in MCDCCases
+    xlsxFileName = save_result_excel(data, TEMP_PATH)
+  File "./libs/excelHandle.py", line 46, in save_result_excel
+    workbook.close()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 322, in close
+    raise FileCreateError(e)
+xlsxwriter.exceptions.FileCreateError: [Errno 2] No such file or directory: '/home/ubuntu/Vue_Analyzingcontext/backend/static/temp/93c459e9e6934eef84c8378dc1abf14b.xlsx'
+
+INFO:root:Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 320, in close
+    self._store_workbook()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 638, in _store_workbook
+    raise e
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 636, in _store_workbook
+    allowZip64=self.allow_zip64)
+  File "/usr/lib/python3.6/zipfile.py", line 1113, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Vue_Analyzingcontext/backend/static/temp/17e0fd85f624487791f9f0b53a29fbcc.xlsx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./start.py", line 104, in MCDCCases
+    xlsxFileName = save_result_excel(data, TEMP_PATH)
+  File "./libs/excelHandle.py", line 46, in save_result_excel
+    workbook.close()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 322, in close
+    raise FileCreateError(e)
+xlsxwriter.exceptions.FileCreateError: [Errno 2] No such file or directory: '/home/ubuntu/Vue_Analyzingcontext/backend/static/temp/17e0fd85f624487791f9f0b53a29fbcc.xlsx'
+
+INFO:root:Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 320, in close
+    self._store_workbook()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 638, in _store_workbook
+    raise e
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 636, in _store_workbook
+    allowZip64=self.allow_zip64)
+  File "/usr/lib/python3.6/zipfile.py", line 1113, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Vue_Analyzingcontext/backend/static/temp/a5cfd6830c4a4bb4a78e48e5d1d88384.xlsx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./start.py", line 104, in MCDCCases
+    xlsxFileName = save_result_excel(data, TEMP_PATH)
+  File "./libs/excelHandle.py", line 46, in save_result_excel
+    workbook.close()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 322, in close
+    raise FileCreateError(e)
+xlsxwriter.exceptions.FileCreateError: [Errno 2] No such file or directory: '/home/ubuntu/Vue_Analyzingcontext/backend/static/temp/a5cfd6830c4a4bb4a78e48e5d1d88384.xlsx'
+
+INFO:root:Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 320, in close
+    self._store_workbook()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 638, in _store_workbook
+    raise e
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 636, in _store_workbook
+    allowZip64=self.allow_zip64)
+  File "/usr/lib/python3.6/zipfile.py", line 1113, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Vue_Analyzingcontext/backend/static/temp/73289d2c2a714168afc439ee916c48e9.xlsx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./start.py", line 104, in MCDCCases
+    xlsxFileName = save_result_excel(data, TEMP_PATH)
+  File "./libs/excelHandle.py", line 46, in save_result_excel
+    workbook.close()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 322, in close
+    raise FileCreateError(e)
+xlsxwriter.exceptions.FileCreateError: [Errno 2] No such file or directory: '/home/ubuntu/Vue_Analyzingcontext/backend/static/temp/73289d2c2a714168afc439ee916c48e9.xlsx'
+
