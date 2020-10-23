@@ -49,10 +49,7 @@ export default {
           { id: "root", isroot: true, topic: "Main" },
 
           { id: "when", parentid: "root", topic: "When", direction: "left" },
-          // { id: "easy1", parentid: "easy", topic: "Easy to show" },
-          // { id: "easy2", parentid: "easy", topic: "Easy to edit" },
-          // { id: "easy3", parentid: "easy", topic: "Easy to store" },
-          // { id: "easy4", parentid: "easy", topic: "Easy to embed" },
+
 
           {
              id: "given",
@@ -61,8 +58,18 @@ export default {
              //expanded: false,
              direction: "right"
           },
+          
           { id: "condition1", parentid: "given", topic: "condition1" },
           { id: "condition2", parentid: "given", topic: "condition2" },
+
+          { id: "action1", parentid: "when", topic: "action1" },
+          { id: "yes1", parentid: "action1", topic: "Yes" },
+          { id: "no1", parentid: "action1", topic: "No" },
+
+          { id: "action2", parentid: "when", topic: "action2" },
+          { id: "yes2", parentid: "action2", topic: "Yes" },
+          { id: "no2", parentid: "action2", topic: "No" },
+
 
           // {
           //   id: "powerful",
