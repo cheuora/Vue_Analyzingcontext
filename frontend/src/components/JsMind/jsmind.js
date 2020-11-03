@@ -1363,6 +1363,7 @@
                     this.view.show(false);
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'insert_node_before', data: [beforeid, nodeid, topic, data], node: nodeid });
                 }
+                console.log("OK.... node before")
                 return node;
             } else {
                 logger.error('fail, this mind map is not editable');
@@ -1475,7 +1476,8 @@
                     this.invoke_event_handle(jm.event_type.edit, { evt: 'move_node', data: [nodeid, beforeid, parentid, direction], node: nodeid });
                 }
                 console.log("move_node")
-                if (this.isWhenIncluded(node)){
+            
+                if (this.isWhenIncluded(node) && !this.have_YN_tail(node)){
                     this.add_YN_tail(node)
 
                 }
@@ -1499,6 +1501,18 @@
             // this.add_node(node,no_id,"No",'','break')
 
 
+        },
+        have_YN_tail: function(node){
+            
+            if (node['children'] == undefined){
+                return false
+            }
+            else{
+                if (node['children'][0]['topic'] == 'Yes' || node['children'][0]['topic'] == 'No' ){
+                    return true
+                }
+            }
+            return false
         },
 
         select_node: function (node) {
