@@ -119,6 +119,9 @@ export default {
       var temp = url.replace(":8080", "")
 
       this.$store.state.mapData = jsMind.util.json.json2string(mind_tree);
+      
+      console.log(mind_data_str)
+      console.log(mind_tree_str)
 
       axios({
         method : 'post',

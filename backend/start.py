@@ -2,19 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import importlib
-from pypict.tools import from_dict
-from pypict.tools import compose_filter_funcs
+
 import json
 from flask import Flask, request, render_template, make_response
-from collections import OrderedDict
 from flask_cors import CORS
-#from datetime import datetime
-#from pyparsing import *
-
-
+from pypair import pypair
 from libs.MakeCombination import MakeResults
-from libs.excelHandle import save_result_excel
+
 
 import traceback
 
@@ -69,19 +63,12 @@ def changeSingleQuoteToHTMLCode(stringValues):
     tempString = stringValues.replace("'", "&#39;")
     return tempString
 
-
-# def _validate_when_given(*argv) :
-
-#     if (len(argv[0]) > 1) :
-#         when = argv[0]['when']
-#         given = argv[0]['given']
-
-#         for dependencyPair in Dependency:
-#             if (given == '__'.join(dependencyPair[0])) and (when == '__'.join(dependencyPair[1])):
-#                 return False
-
-#     return True
-
+def convertToList(tuple):
+    results = []
+    for i in tuple:
+        results.append(i.split("__"))
+    
+    return results
 
 
 
@@ -95,18 +82,18 @@ def MCDCCases():
         #code_data = "```" + request.form['Codes'].decode('UTF-8') + "```"
         code_data = "```" + request.json['codes'] + "```"
         resultList = MakeResults(code_data)
-        data = ''
-        for i in range(len(resultList)):
-            data = data + str(resultList[i])
-            #print resultList[i]
+        # data = ''
+        # for i in range(len(resultList)):
+        #     data = data + str(resultList[i])
+        #     #print resultList[i]
 
-        data = data.replace('@','()')
-        xlsxFileName = save_result_excel(data, TEMP_PATH)
+        # data = data.replace('@','()')
+        # xlsxFileName = save_result_excel(data, TEMP_PATH)
         
         #return render_template('ECT_Cases.html', cases=data, key=authkey, xlsxfile='temp/'+xlsxFileName)
         #merge data + xlsxFileName 
-        retData = data + ":::" + xlsxFileName
-        return retData
+        # retData = data + ":::" + xlsxFileName
+        return resultList
 
 
     except :
@@ -153,20 +140,24 @@ def GetMindmapCases():
 
         for itemOfDevidedGivenArray in DividedGivenArray:
             pairingDic[itemOfDevidedGivenArray[0]] = [ '__'.join(item) for item in itemOfDevidedGivenArray[1:]]
+        
+        print(pairingDic)
 
-        Pairs = from_dict(pairingDic,random_seed=2)
+        inputs = []
+        inputs.append(pairingDic["when"])
+        del pairingDic['when']
 
-        PairsToList = list(Pairs)
+        for i in pairingDic.values() :
+            inputs.append(i)
+
+        Pairs = pypair(inputs,2)
+
         PairsWithOldTypr = []
 
-        for PairsToListItem in PairsToList:
-            temp = []
-            temp.append(PairsToListItem['when'].split('__'))
-            del PairsToListItem['when']
-            for i, value in PairsToListItem.items():
-                temp.append(value.split('__'))
-
+        for i in Pairs:
+            temp = convertToList(i)
             PairsWithOldTypr.append(temp)
+
         
         tableData = makeTableData(PairsWithOldTypr)
         return tableData
@@ -177,7 +168,7 @@ def GetMindmapCases():
         return render_template('Error.html')
 
 
-    
+
 def getLastPoint(postTreeData, EndPointDictionary):
     if 'children' in postTreeData:
         for j in postTreeData['children']:
@@ -236,7 +227,6 @@ def makeTableData(Pairs):
 
 
 if __name__ == "__main__":
-    #app.run(host='172.18.0.2', port=80)
     app.run(host='0.0.0.0', port=5000)
 
 
