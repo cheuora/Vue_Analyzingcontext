@@ -78,6 +78,7 @@ class Coverage:
                 y = values.index(itemVal)
                 x = i
                 retval.append((x,y))
+                break
 
         return retval
         

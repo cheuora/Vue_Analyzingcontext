@@ -101,9 +101,14 @@ def MakeResults(data):
             #del value[0]
         
         mcdcFilter = nonDictFilter(cases)
-        temp = pypair(cases,len(cases),nonDictFilter=mcdcFilter)
+        # temp = pypair(cases,len(cases),nonDictFilter=mcdcFilter)
+        temp = pypair(cases,1,nonDictFilter=mcdcFilter)
 
         MCDC_Results.append(temp)
+        
+
+    for i in MCDC_Results:
+        print(i)
 
     
     resultHTML = convertHTML_TABLE(if_statements_list, if_statement_variables ,MCDC_Results)

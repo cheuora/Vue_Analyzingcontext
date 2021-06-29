@@ -1,0 +1,169 @@
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:35:43] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:35:43] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:36:46] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:root:Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/mcdc/lib/python3.9/site-packages/pyparsing.py", line 1683, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, preloc, doActions)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/mcdc/lib/python3.9/site-packages/pyparsing.py", line 2897, in parseImpl
+    if instring[loc] == self.firstMatchChar:
+IndexError: string index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/start.py", line 84, in MCDCCases
+    resultList = MakeResults(code_data)
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/libs/MakeCombination.py", line 79, in MakeResults
+    if_statements_list = getWholeIfPath(ifBlock)
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/parsingif.py", line 106, in getWholeIfPath
+    mParenthese = nestedExpr('{', '}').parseString(parsing_text).asList()
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/mcdc/lib/python3.9/site-packages/pyparsing.py", line 1955, in parseString
+    raise exc
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/mcdc/lib/python3.9/site-packages/pyparsing.py", line 1685, in _parseNoCache
+    raise ParseException(instring, len(instring), self.errmsg, self)
+pyparsing.ParseException: Expected "}", found end of text  (at char 108), (line:12, col:3)
+
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:36:46] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:36:58] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:36:58] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:37:15] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:37:15] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:37:25] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:37:25] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:41:44] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:41:44] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:42:18] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:42:18] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:43:29] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:43:29] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 21:48:35] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 22:00:41] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 22:05:48] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 22:15:56] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:30:37] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:root:Traceback (most recent call last):
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/start.py", line 84, in MCDCCases
+    resultList = MakeResults(code_data)
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/libs/MakeCombination.py", line 105, in MakeResults
+    temp = pypair(cases,1,nonDictFilter=mcdcFilter)
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/pypair.py", line 124, in pypair
+    Test_cases = executor(fullcomb, coverageObj)
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/pypair.py", line 26, in executor
+    bingo = coverageObj.checkCoverage(value)
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/pypair.py", line 112, in checkCoverage
+    self.updateCoverage(searchResult)
+  File "/Users/cheuora/works/newAnalyzingContext/Vue_Analyzingcontext/backend/pypair.py", line 61, in updateCoverage
+    Coverage.originCoverage[coordinate[0]].pop(coordinate[1])
+TypeError: list indices must be integers or slices, not tuple
+
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:30:37] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:31:37] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:34:31] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:34:31] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:35:01] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:35:01] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:36:35] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:36:35] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:37:21] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:37:21] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:39:43] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:39:43] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:43:08] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:43:08] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:43:40] "[33mGET /static/temp/undefined HTTP/1.1[0m" 404 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:45:18] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:45:18] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:51:31] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:51:31] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:52:58] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:52:58] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:53:34] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:53:34] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:54:31] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:54:31] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:55:26] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:55:26] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:57:01] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:57:01] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:57:40] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:57:40] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:01] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:02] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:08] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:08] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:19] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:19] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:22] "[33mGET /static/temp/undefined HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:23] "[33mGET /static/temp/undefined HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:32] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:58:32] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:59:21] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2021 23:59:21] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:00:13] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:00:13] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:34:59] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:34:59] "POST /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:35:20] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:35:20] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:36:26] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:36:26] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:40:11] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:40:11] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:41:02] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:41:02] "POST /mcdcresult HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.106:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:43:50] "OPTIONS /mcdcresult HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jun/2021 00:43:50] "POST /mcdcresult HTTP/1.1" 200 -
