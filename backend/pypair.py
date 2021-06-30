@@ -65,7 +65,7 @@ class Coverage:
 
         return itemCount2by2(Coverage.originCoverage)
 
-    def searchCoverageItem(self, itemVal):
+    def searchCoverageItem(self, itemVal, fromIndex = ()):
         # 커버리지 list배열(2x2)에서 item을 찾아 인덱스를(x,y) return
         # 못찾으면 [] return
 
@@ -77,7 +77,9 @@ class Coverage:
             if ( itemVal in values):
                 y = values.index(itemVal)
                 x = i
-                retval.append((x,y))
+                if ((len(fromIndex)>0 and x > fromIndex[0]) or len(fromIndex) == 0 ):
+                    retval.append((x,y))
+                
                 break
 
         return retval
@@ -106,7 +108,12 @@ class Coverage:
         #필터 적용해야 한다.
         for i in combinations_case:
             if self.checkFilter(i):
-                searchResult = self.searchCoverageItem(i)
+
+                if retval == []:
+                    searchResult = self.searchCoverageItem(i)
+                else:
+                    searchResult = self.searchCoverageItem(i,fromIndex=retval[-1])
+
                 if (searchResult): 
                     retval = retval + searchResult
             else:

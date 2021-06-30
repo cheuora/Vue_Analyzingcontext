@@ -95,10 +95,10 @@ def MakeResults(data):
     for i, cases in enumerate(fullMCDC):
         for h, value in enumerate(cases):
             if h > 0 :
-                value.append(['-'])
+                temp = '-,' * len(value[-1][0].split(','))
+                value.append([temp[:-1]])
 
             if_statement_variables.append(value.pop(0))
-            #del value[0]
         
         mcdcFilter = nonDictFilter(cases)
         # temp = pypair(cases,len(cases),nonDictFilter=mcdcFilter)
