@@ -3,8 +3,6 @@
         <h3>MCDC Result</h3>
         <center>
         <p v-html="table"></p>
-        <br>
-                <button @click="downLoad">Down</button>
         </center>
     </div>
 </template>
