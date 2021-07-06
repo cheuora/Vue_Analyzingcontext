@@ -1,4 +1,4 @@
-from libs.getPatternAndWrite_second import MakeMCDCResults
+from libs.getPatternAndWrite import MakeMCDCResults
 from pypair import pypair, getCoverage
 import itertools
 

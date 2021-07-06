@@ -2,19 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import logging
-
+from starlette.responses import HTMLResponse
+import uvicorn
 import json
-from flask import Flask, request, render_template
-from flask_cors import CORS
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from pypair import pypair
 from libs.MakeCombination import MakeResults
-
-
+from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 import traceback
-
-app = Flask(__name__)
-CORS(app)
-
 import os
 
 HOST = 'localhost'
@@ -24,10 +21,38 @@ DB_USER_PWD = ''
 MAX_TIME = 3600
 #MAX_TIME = 3600
 PAID_USER_MAX_TIME = 3600
-TEMP_PATH = os.getcwd() + '/static/temp/'
+kTEMP_PATH = os.getcwd() + '/static/temp/'
+tempPath = os.getcwd() + '/templates/'
+
+app = FastAPI()
+
+app.mount(kTEMP_PATH, StaticFiles(directory="static"), name="static")
 
 
 logging.basicConfig(filename='./WSGI.log',level=logging.DEBUG)
+
+
+
+origins = [
+    "http://localhost:5000",
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+class MCDCData(BaseModel):
+    codes : str
+
+class MindMapData(BaseModel):
+    mindMapData : str
+    mindTreeData : str
 
 def common_elements(list1, list2):
     result = []
@@ -73,14 +98,14 @@ def convertToList(tuple):
 
 
 
-@app.route('/mcdcresult', methods=['POST'])
-def MCDCCases():
-
+@app.post('/mcdcresult')
+def MCDCCases(MCDCData: MCDCData):
     try:
         #authkey = request.cookies.get('authkey')
 
         #code_data = "```" + request.form['Codes'].decode('UTF-8') + "```"
-        code_data = "```" + request.json['codes'] + "```"
+        
+        code_data = "```" + MCDCData.codes + "```"
         resultList = MakeResults(code_data)
         # data = ''
         # for i in range(len(resultList)):
@@ -100,14 +125,21 @@ def MCDCCases():
         var = traceback.format_exc()
         logging.info(var)
         #Error Page
-        return render_template('Error.html')
+        with open(tempPath+"Error.html", "r") as f:
+            htmlData = ""
+            lines = f.readlines()
+            for line in lines:
+                htmlData = htmlData + line
+
+        return HTMLResponse(content=htmlData, status_code=200)
 
 
-@app.route('/mindmap', methods=['POST'])
-def GetMindmapCases():
-    try:    
-        postData = json.loads(request.json['mindMapData'])
-        postTreeData = json.loads(request.json['mindTreeData'])
+@app.post('/mindmap')
+def GetMindmapCases(MindMapData : MindMapData):
+    try:
+        postData = json.loads(MindMapData.mindMapData)
+        postTreeData = json.loads(MindMapData.mindTreeData)
+
         endPointDic = {}
         getLastPoint(postTreeData,endPointDic)
         Paths = getPaths(postData,endPointDic)
@@ -163,7 +195,16 @@ def GetMindmapCases():
         var = traceback.format_exc()
         logging.info(var)
         #Error Page
-        return render_template('Error.html')
+        with open(tempPath+"Error.html", "r") as f:
+            htmlData = ""
+            lines = f.readlines()
+            for line in lines:
+                htmlData = htmlData + line
+
+        return HTMLResponse(content=htmlData, status_code=200)
+
+        
+
 
 
 
@@ -219,7 +260,4 @@ def makeTableData(Pairs):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
-
-
-
+    uvicorn.run(app, host="0.0.0.0", port=5000)
