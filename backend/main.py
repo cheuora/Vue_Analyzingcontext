@@ -21,15 +21,15 @@ DB_USER_PWD = ''
 MAX_TIME = 3600
 #MAX_TIME = 3600
 PAID_USER_MAX_TIME = 3600
-kTEMP_PATH = os.getcwd() + '/static/temp/'
+kTEMP_PATH = os.getcwd() + '/static/'
 tempPath = os.getcwd() + '/templates/'
 
 app = FastAPI()
 
-app.mount(kTEMP_PATH, StaticFiles(directory="static"), name="static")
+app.mount('/static', StaticFiles(directory="/fastapi/static/"), name="static")
 
 
-logging.basicConfig(filename='./WSGI.log',level=logging.DEBUG)
+logging.basicConfig(filename='/fastapi/WSGI.log',level=logging.DEBUG)
 
 
 
