@@ -34,9 +34,9 @@ logging.basicConfig(filename='/fastapi/WSGI.log',level=logging.DEBUG)
 
 
 origins = [
-    "http://localhost:5000",
-    "http://localhost",
-    "http://localhost:8080",
+        "http://i02prf9.p.ssafy.io:5000",
+    "http://i02prf9.p.ssafy.io",
+    "http://i02prf9.p.ssafy.io:8080",
 ]
 
 app.add_middleware(
