@@ -107,9 +107,6 @@ def MakeResults(data):
         MCDC_Results.append(temp)
         
 
-    for i in MCDC_Results:
-        print(i)
-
     
     resultHTML = convertHTML_TABLE(if_statements_list, if_statement_variables ,MCDC_Results)
 
