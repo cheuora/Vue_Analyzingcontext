@@ -11,6 +11,7 @@ from pypair import pypair
 from libs.MakeCombination import MakeResults
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from config import settings
 import traceback
 import os
 
@@ -34,11 +35,11 @@ logging.basicConfig(filename='/fastapi/WSGI.log',level=logging.DEBUG)
 
 
 origins = [
-        "http://i02prf9.p.ssafy.io:5000",
-    "http://i02prf9.p.ssafy.io",
-    "http://i02prf9.p.ssafy.io:8080",
+        settings.base_url + ":5000",
+    settings.base_url,
+    settings.base_url + ":8080",
 ]
-
+ 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
