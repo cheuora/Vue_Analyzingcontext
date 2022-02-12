@@ -44,7 +44,7 @@
   
 
   * `docker build -t [your server name] .`
-  * `docker run --restart unless-stopped -p 5000:5000 [your server name]` 
+  * `docker run -d --restart unless-stopped -p 5000:5000 [your server name]` 
 
   
 
