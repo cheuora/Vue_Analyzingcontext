@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# This file is deprecated!!!(2022,03,01)
 
 import logging
 
